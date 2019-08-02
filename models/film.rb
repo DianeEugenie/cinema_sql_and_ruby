@@ -62,7 +62,7 @@ class Film
 
   #method to show all screenings of a movie
   def screenings()
-    sql = "SELECT screenings.* FROM screenings INNER JOIN tickets ON screenings.id = tickets.screening_id WHERE tickets.film_id = $1;" #returns a hash with screening_ids of a specific film
+    sql = "SELECT screenings.* FROM screenings INNER JOIN tickets ON screenings.id = tickets.screening_id WHERE tickets.film_id = $1;" #returns a hash with tickets(screen_times) of a specific film
     values = [@id]
     screenings_hash = SqlRunner.run(sql, values)
     return screenings_hash.map{|screen| Screening.new(screen)}
@@ -73,21 +73,11 @@ class Film
     screening = all_screens.map{|screening| screening.screen_time}
     #map all the screen_times of a specific movie = array of e.g. ["16:00", "16:00", "18:00", "14:00", "16:00"]
 
-    counts = Hash.new(0)
-    popular_time = screening.max_by {|time| counts[time] += 1} #gives the max value so in this case the once that is counted the most
+    counts = Hash.new(0) #{"16:00"=>3, "18:00"=>1, "14:00"=>1}
+    popular_time = screening.max {|time| counts[time] += 1} #gives the max value so in this case the screentime that is counted the most
     return popular_time
 
   end
-
-
-
-
-
-#     SELECT username, email, COUNT(*)
-# FROM users
-# GROUP BY username, email
-# HAVING COUNT(*) > 1
-
 
 
 
