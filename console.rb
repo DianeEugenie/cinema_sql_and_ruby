@@ -1,6 +1,7 @@
 require_relative("./models/customer.rb")
 require_relative("./models/film.rb")
 require_relative("./models/ticket.rb")
+require_relative("./models/screening.rb")
 
 require("pry-byebug")
 
@@ -67,6 +68,33 @@ film3.save()
 # film3.title = "Practical Magic"
 # film3.update()
 
+screening1 = Screening.new(
+  {
+    "time" => "14:00"
+  }
+)
+
+screening2 = Screening.new(
+  {
+    "time" => "16:00"
+  }
+)
+
+screening3 = Screening.new(
+  {
+    "time" => "17:00"
+  }
+)
+
+screening4 = Screening.new(
+  {
+    "time" => "18:00"
+  }
+)
+
+
+
+
 ticket1 = Ticket.new(
   {
     "customer_id" => customer1.id,
@@ -113,6 +141,8 @@ ticket5.save()
 
 # ticket5.customer_id = customer2.id
 # ticket5.update()
+
+
 
 
 
