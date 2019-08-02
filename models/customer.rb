@@ -52,6 +52,21 @@ class Customer
     return films.map{|film| Film.new(film)}
   end
 
+  #Buying tickets should decrease the funds of the customer by the price #
+
+  def buy()
+    #films the customer has tickets to
+    all_films = films()
+    #sum the films (as there can be more than one) and from each film add the price up and assign it to price
+    price = all_films.sum{|film| film.price}
+    return @funds - price
+  end
+
+  # Check how many tickets were bought by a customer
+  def tickets()
+    films().count()
+  end
+
 
 
 end
