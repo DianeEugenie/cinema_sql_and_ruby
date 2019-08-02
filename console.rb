@@ -62,7 +62,8 @@ film2.save()
 film3.save()
 
 # film2.delete()
-
+film3.title = "Practical Magic"
+film3.update()
 
 
 
