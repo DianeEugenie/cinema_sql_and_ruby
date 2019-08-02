@@ -1,4 +1,7 @@
+require_relative("./models/customer.rb")
+
 require("pry-byebug")
+
 
 customer1 = Customer.new(
   {
