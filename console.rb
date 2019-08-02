@@ -110,6 +110,9 @@ ticket5.save()
 
 # ticket2.delete()
 
+ticket5.customer_id = customer2.id
+ticket5.update()
+
 
 
 
