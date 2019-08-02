@@ -2,6 +2,9 @@ require_relative("../db/sql_runner.rb")
 
 class Customer
 
+  attr_reader :id
+  attr_accessor :name, :funds
+
   def initialize(customer)
     @id = customer["id"].to_i if customer["id"]
     @name = customer["name"]
