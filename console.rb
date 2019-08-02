@@ -71,25 +71,25 @@ film3.save()
 
 screening1 = Screening.new(
   {
-    "time" => "14:00"
+    "screen_time" => "14:00"
   }
 )
 
 screening2 = Screening.new(
   {
-    "time" => "16:00"
+    "screen_time" => "16:00"
   }
 )
 
 screening3 = Screening.new(
   {
-    "time" => "17:00"
+    "screen_time" => "17:00"
   }
 )
 
 screening4 = Screening.new(
   {
-    "time" => "18:00"
+    "screen_time" => "18:00"
   }
 )
 

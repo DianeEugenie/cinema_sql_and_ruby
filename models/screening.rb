@@ -7,7 +7,7 @@ class Screening
 
   def initialize(screening)
     @id = screening["id"].to_i if screening["id"]
-    @screen_time = screening["time"]
+    @screen_time = screening["screen_time"]
   end
 
   def save()
@@ -20,6 +20,12 @@ class Screening
   def self.delete_all()
     sql = "DELETE FROM screenings;"
     SqlRunner.run(sql)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM screenings;"
+    screenings = SqlRunner.run(sql)
+    return screenings.map{|screening| Screening.new(screening)}
   end
 
 
