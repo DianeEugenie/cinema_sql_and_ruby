@@ -24,6 +24,10 @@ customer3 = Customer.new(
   }
 )
 
+customer1.save()
+customer2.save()
+customer3.save()
+
 
 
 
