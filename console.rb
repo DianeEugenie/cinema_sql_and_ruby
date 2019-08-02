@@ -108,6 +108,8 @@ ticket3.save()
 ticket4.save()
 ticket5.save()
 
+ticket2.delete()
+
 
 
 
