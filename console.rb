@@ -35,8 +35,8 @@ customer2.save()
 customer3.save()
 
 # customer1.delete()
-customer3.name = "Paige"
-customer3.update()
+# customer3.name = "Paige"
+# customer3.update()
 
 film1 = Film.new(
   {
@@ -64,8 +64,8 @@ film2.save()
 film3.save()
 
 # film2.delete()
-film3.title = "Practical Magic"
-film3.update()
+# film3.title = "Practical Magic"
+# film3.update()
 
 ticket1 = Ticket.new(
   {
@@ -110,8 +110,8 @@ ticket5.save()
 
 # ticket2.delete()
 
-ticket5.customer_id = customer2.id
-ticket5.update()
+# ticket5.customer_id = customer2.id
+# ticket5.update()
 
 
 
