@@ -61,7 +61,7 @@ film1.save()
 film2.save()
 film3.save()
 
-film2.delete()
+# film2.delete()
 
 
 
