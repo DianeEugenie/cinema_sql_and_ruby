@@ -59,12 +59,14 @@ class Customer
     all_films = films()
     #sum the films (as there can be more than one) and from each film add the price up and assign it to price
     price = all_films.sum{|film| film.price}
-    return @funds - price
+    remaining_funds = @funds - price
+    @funds = remaining_funds
+    update() #update the customer's funds!
   end
 
   # Check how many tickets were bought by a customer
   def tickets()
-    films().count()
+    return films().count()
   end
 
 
