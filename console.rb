@@ -30,7 +30,9 @@ customer1.save()
 customer2.save()
 customer3.save()
 
-customer1.delete()
+# customer1.delete()
+customer3.name = "Paige"
+customer3.update()
 
 
 
