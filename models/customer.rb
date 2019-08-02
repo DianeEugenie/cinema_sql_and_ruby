@@ -64,9 +64,10 @@ class Customer
 
   # Check how many tickets were bought by a customer
   def tickets()
-    #use get all films customer booked and use count
     films().count()
   end
+
+
 
 
 

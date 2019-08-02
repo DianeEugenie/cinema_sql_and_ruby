@@ -51,6 +51,11 @@ class Film
     return customers.map{|customer| Customer.new(customer)}
   end
 
+  #Check how many customers are going to watch a certain film
+
+  def customer_count()
+    customers().count()
+  end
 
 
 
