@@ -8,6 +8,7 @@ require("pry-byebug")
 Ticket.delete_all()
 Customer.delete_all()
 Film.delete_all()
+Screening.delete_all()
 
 
 customer1 = Customer.new(

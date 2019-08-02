@@ -17,5 +17,10 @@ class Screening
     @id = screening["id"].to_i
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM screenings;"
+    SqlRunner.run(sql)
+  end
+
 
 end
