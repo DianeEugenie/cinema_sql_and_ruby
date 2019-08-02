@@ -2,6 +2,8 @@ require_relative("./models/customer.rb")
 
 require("pry-byebug")
 
+Customer.delete_all()
+
 
 customer1 = Customer.new(
   {
