@@ -44,9 +44,4 @@ class Customer
 
 
 
-
-
-
-
-
 end

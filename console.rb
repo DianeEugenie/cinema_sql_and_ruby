@@ -1,4 +1,5 @@
 require_relative("./models/customer.rb")
+require_relative("./models/film.rb")
 
 require("pry-byebug")
 
@@ -33,6 +34,27 @@ customer3.save()
 # customer1.delete()
 customer3.name = "Paige"
 customer3.update()
+
+film1 = Film.new(
+  {
+    "title" => "The Witches",
+    "price" => 5
+  }
+)
+
+film2 = Film.new(
+  {
+    "title" => "Something Wicked This Way Comes",
+    "price" => 7
+  }
+)
+
+film3 = Film.new(
+  {
+    "title" => "The Craft",
+    "price" => 5
+  }
+)
 
 
 
