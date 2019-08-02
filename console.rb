@@ -101,6 +101,11 @@ ticket5 = Ticket.new(
   }
 )
 
+ticket1.save()
+ticket2.save()
+ticket3.save()
+ticket4.save()
+ticket5.save()
 
 
 
