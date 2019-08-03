@@ -45,6 +45,19 @@ class Ticket
     SqlRunner.run(sql, values)
   end
 
+#find all tickets for a specific movie screentime
+  def screenings()
+    sql = "SELECT * FROM tickets WHERE screening_id = $1 and film_id = $2;"
+    values = [@screening_id, @film_id]
+    tickets = SqlRunner.run(sql, values)
+    return tickets.map{|ticket| Ticket.new(ticket)}
+  end
+#see how many tickets sold per each specific screentime & movie
+  def count()
+    screenings().count()
+  end
+
+
 
 
 
