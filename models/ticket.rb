@@ -13,13 +13,13 @@ class Ticket
   end
 
   def save()
-    sql = "INSERT INTO tickets
-    (customer_id, film_id, screening_id)
-    VALUES ($1, $2, $3)
-    RETURNING id;"
-    values = [@customer_id, @film_id, @screening_id]
-    ticket = SqlRunner.run(sql, values)[0]
-    @id = ticket["id"].to_i
+      sql = "INSERT INTO tickets
+      (customer_id, film_id, screening_id)
+      VALUES ($1, $2, $3)
+      RETURNING id;"
+      values = [@customer_id, @film_id, @screening_id]
+      ticket = SqlRunner.run(sql, values)[0]
+      @id = ticket["id"].to_i
   end
 
   def self.delete_all()
@@ -44,22 +44,6 @@ class Ticket
     values = [@customer_id, @film_id, @screening_id, @id]
     SqlRunner.run(sql, values)
   end
-
-#find all tickets for a specific movie screentime
-  def screenings()
-    sql = "SELECT * FROM tickets WHERE screening_id = $1 and film_id = $2;"
-    values = [@screening_id, @film_id]
-    tickets = SqlRunner.run(sql, values)
-    return tickets.map{|ticket| Ticket.new(ticket)}
-  end
-#see how many tickets sold per each specific screentime & movie
-  def count()
-    screenings().count()
-  end
-
-
-
-
 
 
 end

@@ -6,9 +6,10 @@ require_relative("./models/screening.rb")
 require("pry-byebug")
 
 Ticket.delete_all()
+Screening.delete_all()
 Customer.delete_all()
 Film.delete_all()
-Screening.delete_all()
+
 
 
 customer1 = Customer.new(
@@ -175,6 +176,29 @@ ticket9 = Ticket.new(
   }
 )
 
+# ticket10 = Ticket.new(
+#   {
+#     "customer_id" => customer3.id,
+#     "film_id" => film2.id,
+#     "screening_id" => screening2.id
+#   }
+# )
+#
+# ticket11 = Ticket.new(
+#   {
+#     "customer_id" => customer3.id,
+#     "film_id" => film2.id,
+#     "screening_id" => screening2.id
+#   }
+# )
+# ticket12 = Ticket.new(
+#   {
+#     "customer_id" => customer2.id,
+#     "film_id" => film2.id,
+#     "screening_id" => screening2.id
+#   }
+# )
+
 
 ticket1.save()
 ticket2.save()
@@ -185,6 +209,9 @@ ticket6.save()
 ticket7.save()
 ticket8.save()
 ticket9.save()
+# ticket10.save()
+# ticket11.save()
+# ticket12.save()
 
 # ticket2.delete()
 

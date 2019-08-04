@@ -74,13 +74,33 @@ class Film
     #map all the screen_times of a specific movie = array of e.g. ["16:00", "16:00", "18:00", "14:00", "16:00"]
 
     counts = Hash.new(0) #{"16:00"=>3, "18:00"=>1, "14:00"=>1}
-    popular_time = screening.max {|time| counts[time] += 1} #gives the max value so in this case the screentime that is counted the most
+    popular_time = screening.max_by {|time| counts[time] += 1} #gives the max value so in this case the screentime that is counted the most
     return popular_time
 
   end
 
 
+#EXTRA FOR PDA:
 
+  def self.order_by_price()
+    sql = "SELECT * FROM films ORDER BY price DESC;"
+    films = SqlRunner.run(sql)
+    return films.map{|film| Film.new(film)}
+  end
+
+#OR
+  def self.all_by_price()
+    sql = "SELECT * FROM films;"
+    films = SqlRunner.run(sql)
+    film_objects = films.map{|film| Film.new(film)}
+    return film_objects.sort_by{|film| -film.price}
+  end
+# cinema=# SELECT * FROM films ORDER BY price DESC;
+#  id |              title              | price
+# ----+---------------------------------+-------
+#   5 | Something Wicked This Way Comes |     7
+#   4 | The Witches                     |     5
+#   6 | The Craft                       |     5
 
 
 end

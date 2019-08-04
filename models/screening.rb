@@ -15,7 +15,6 @@ class Screening
     values = [@screen_time]
     screening = SqlRunner.run(sql, values)[0]
     @id = screening["id"].to_i
-
   end
 
   def self.delete_all()
@@ -40,24 +39,29 @@ class Screening
 
   #Count tickets sold for specific screen_time
   def count_tickets()
-    sold_tickets = tickets().count()
-    @total + sold_tickets
+    return tickets().count()
   end
 
-  def self.overview()
-    sql =
-    films_by_count = SqlRunner.run(sql)
-    return films_by_count.map{|film| Hash.new(film)}
-  end
 
   #CREATES A TABLE IN PSQL WITH THE TITLE, THE COUNT, SCREENING ID AND SCREEN TIME ORDERED BY COUNT DESCENDING
-  #how to turn it into an object??
-  # "SELECT films.title, COUNT (films.title), screening_id, screenings.screen_time
-  # FROM tickets
-  # INNER JOIN screenings ON screenings.id = tickets.screening_id
-  # INNER JOIN films ON films.id = tickets.film_id
-  # GROUP BY films.title, screenings.screen_time, tickets.screening_id
-  # ORDER BY COUNT (films.title) DESC;"
+  #how to turn it into an object?? - listed by the number of tickets sold per screening
+#   "SELECT films.title, COUNT (films.title), screening_id, screenings.screen_time
+#   FROM tickets
+#   INNER JOIN screenings ON screenings.id = tickets.screening_id
+#   INNER JOIN films ON films.id = tickets.film_id
+#   GROUP BY films.title, screenings.screen_time, tickets.screening_id
+#   ORDER BY COUNT (films.title) DESC;"
+#
+#   cinema-#   ORDER BY COUNT (films.title) DESC;
+#               title              | count | screening_id | screen_time
+# ---------------------------------+-------+--------------+-------------
+#  Something Wicked This Way Comes |     3 |            6 | 16:00
+#  The Craft                       |     2 |            8 | 18:00
+#  The Craft                       |     1 |            7 | 17:00
+#  Something Wicked This Way Comes |     1 |            8 | 18:00
+#  Something Wicked This Way Comes |     1 |            5 | 14:00
+#  The Witches                     |     1 |            5 | 14:00
+# (6 rows)
 
 
 end
